@@ -1,36 +1,38 @@
-The build of the website can be found at [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+The build of the website can be found at [Blog site](https://blog-app-ten-chi.vercel.app/). This project is made with [`Next js`](https://nextjs.org/).
 
-## Getting Started
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open [https://blog-app-ten-chi.vercel.app/](https://blog-app-ten-chi.vercel.app/) with your browser to see the website.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You have to first signup if you are a new user or directly signin if you already have an account.This step is necessary before viewing any of the posts.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+After you sign in you can access the posts section and view the blogs. 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To create a blog go to create post section from the navbar 
 
-## Learn More
+To view full blog in the post section ,Click on any of the post
 
-To learn more about Next.js, take a look at the following resources:
+To update a blog after going to it , You need to click on edit button (Only possible if you are the author else not visible to other users)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To delete a blog after going to it, You need to click on delete button (Only possible if you are the author else not visible to other users)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+All users are allowed to add comment to a blog 
 
-## Deploy on Vercel
+All title of the blogs need to be unique so you will get an error if you try to add a post with same title as any previous post
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Register
+
+Go to the Register section from the navbar 
+
+Enter the required fields ( Email and username should be unique to register)
+
+
+## Login
+
+Go to the login section from the navbar
+
+Enter you email and password  and do the login to acceess the contents
+
+
