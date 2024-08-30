@@ -15,6 +15,12 @@ interface postType{
     createdAt: Date;
   } 
 }
+const SubmitBtn =()=>{
+  const {pending} = useFormStatus();
+  return(
+    <button disabled={pending} type="submit" className={`${pending?"bg-zinc-500" :"bg-blue-500"} text-white p-2 rounded px-7 mt-4 `}>{!pending?"Submit":"Submitting..."}</button>
+  )
+}
 
 
 const initialState ={
@@ -22,7 +28,6 @@ const initialState ={
 }
 export default function UpdatePostForm({post}:postType) {
 
-  const {pending}= useFormStatus();
   const [state,formAction] = useFormState(editPost,initialState)
   const {title , slug ,body} = post
   return (
@@ -30,8 +35,7 @@ export default function UpdatePostForm({post}:postType) {
     <input defaultValue={title} className="border rounded  px-3  h-10 " type="text" name="title" placeholder="Title for new post" required />
     <textarea defaultValue={body} name="body" placeholder="Body content for new post" rows={6} className="border rounded px-3 required py-2" />
     <input type='hidden' name='slug' value={slug}/>
-
-    <button disabled={pending} className={`h-10 ${pending?'bg-zinc-500':"bg-blue-500"} px-5 rounded text-white`}>Submit</button>
+    <SubmitBtn/>
     {state.error  ?<p className='text-red-500'>{state.error}</p>:null}
   </form>
   </>

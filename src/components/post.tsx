@@ -42,7 +42,11 @@ export default async function Post({ slug ,userId}: { slug: string,userId:string
     return (
         <>
             <main className="bg-zinc-100 w-10/12 m-auto mb-3  px-3 py-3 rounded-xl leading-6 min-h-[40vh]">
+            <div className="flex justify-between ">
             <span  className="bg-green-500 text-white p-2 rounded-xl px-7 mt-4 font-semibold ">Author : {author?.name}</span>
+            <span  className=" text-sm  p-2 rounded-xl px-7 mt-4 font-medium ">Modified at : {post.updatedAt.toString()}</span>
+
+            </div>
                 <div className="bg-white py-4 px-3 space-y-3 rounded-xl mt-4">
                     <h2 className="text-3xl font-bold ">{post.title}</h2>
 

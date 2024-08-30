@@ -15,11 +15,10 @@ import { redirect} from "next/navigation"
 
 type stateType ={
     error:string 
-}
+} 
 
 
 export async function createPost(previousState:stateType,formData:FormData) {
-
     try {
         const title =formData.get("title") as string
         const body =formData.get("body") as string
@@ -77,12 +76,11 @@ export async function editPost(previousState:stateType,formData:FormData)
 }
 
 
-export async function deletePost(slug:string){
+export async function deletePost(previousState:stateType,formData:FormData){
     try {
 
+        const slug =formData.get("slug") as string
 
-
-        
         await prisma.post.delete({where:{
             slug
         }})
@@ -90,9 +88,8 @@ export async function deletePost(slug:string){
         revalidatePath("/posts")
     
     } catch (error) {
-        return {error:"Error in updating yor post"}
+        return {error:"Error in deleting your post"}
     }
-
 
     redirect("/posts")
 
@@ -104,8 +101,7 @@ export async function logout() {
 }
 
 
-export async function createComment(formData:FormData) {
-
+export async function createComment(previousState:stateType,formData:FormData) {
     try {
         const commentBody =formData.get("commentBody") as string
         const userId =formData.get("userId") as string
@@ -121,8 +117,10 @@ export async function createComment(formData:FormData) {
         })
     
         revalidatePath(`/posts/${slug}`)
+        return {error:""}
+
     } catch (error) {
-        console.log(error)
+        return {error:"Eror in adding your comment"}
     }
 
     // redirect("/posts")  
