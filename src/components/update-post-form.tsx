@@ -33,7 +33,7 @@ export default function UpdatePostForm({post}:postType) {
   return (
     <>    <form action={formAction} className="flex flex-col w-10/12  mx-auto  space-x-2 mt-10 gap-2 ">
     <input defaultValue={title} className="border rounded  px-3  h-10 " type="text" name="title" placeholder="Title for new post" required />
-    <textarea defaultValue={body} name="body" placeholder="Body content for new post" rows={6} className="border rounded px-3 required py-2" />
+    <textarea defaultValue={body} name="body" placeholder="Body content for new post" rows={10} className="border rounded px-3 required py-2" />
     <input type='hidden' name='slug' value={slug}/>
     <SubmitBtn/>
     {state.error  ?<p className='text-red-500'>{state.error}</p>:null}
