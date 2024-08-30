@@ -41,4 +41,4 @@ Enter you email and password  and do the login to acceess the contents
 The UI can be further enhanced to give a better look .
 
 
-Credits to bytegrad for his tutorial in youtube and of next js and initial design
+Credits to bytegrad for his tutorial in youtube of next js and initial design 
