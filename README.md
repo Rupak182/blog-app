@@ -1,4 +1,4 @@
-The build of the website can be found at [Blog site](https://blog-app-ten-chi.vercel.app/). This project is made with [`Next js`](https://nextjs.org/).
+The build of the website can be found at [Blog site](https://blog-app-ten-chi.vercel.app/). This project is made with [`Next.js`](https://nextjs.org/).
 
 
 ## Overview
