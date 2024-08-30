@@ -1,7 +1,7 @@
 import {auth} from '@/auth'
 import { signOut } from '@/auth'
 
-
+//  remove
 export default async function Logout() {
     const session =await auth();
   return (

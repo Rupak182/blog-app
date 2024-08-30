@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Container from "@/components/Container";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,13 +19,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+
     <html lang="en">
       <body className={`${inter.className} min-h-screen bg-zinc-100  text-zinc-900`}>
-        <Container>
-          <Header />
-          {children}
-          <Footer />
-        </Container>
+        <SessionProvider>
+          <Container>
+            <Header />
+            {children}
+            <Footer />
+          </Container>
+        </SessionProvider>
+
       </body>
     </html>
   );

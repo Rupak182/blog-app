@@ -137,8 +137,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             if(!validPassword)
                 throw new CredentialsSignin("Invalid email or password");
             
-            return {name:user.name, email:user.password}
-
+            return user
 
         }
       
@@ -149,6 +148,27 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   pages: {
     signIn: 'auth/login',
   },
+
+  callbacks:{
+    jwt({token,user}){
+      if(user){
+        token.name = user.name as string
+        token.id = user.id as string
+
+      }
+      return token
+    },
+
+
+    session ({session,token}){
+      session.user.name = token.name
+      session.user.id = token.id
+
+      return session
+    }
+  }
+
+
 
   
   

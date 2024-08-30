@@ -60,9 +60,10 @@ export default function LoginForm() {
             )}
             {<button disabled={isSubmitting}  className={`${isSubmitting?"bg-zinc-500" :"bg-blue-500"} text-white my-4 text-lg font-semibold py-3 rounded-md`} >Login</button>}
             
-            {err?(<p className='text-red-500 text-center w-full'>Error occured</p>):""}
+            {err?(<p className='text-red-500 text-center w-full'>{err}</p>):""}
 
             {success?(<p className='text-blue-500 text-center w-full'>Successful</p>):""}
         </form>
+
     )
 }

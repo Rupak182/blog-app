@@ -51,6 +51,7 @@ import { redirect } from 'next/navigation';
 
 export async function login(values:z.infer<typeof LoginSchema>) {
 
+  try {
     const validatedFields = LoginSchema.safeParse(values);
 
     if(!validatedFields.success)
@@ -58,12 +59,23 @@ export async function login(values:z.infer<typeof LoginSchema>) {
         
     const {email ,password}=validatedFields.data;
 
-    await signIn('credentials',{
-        redirect:false,
-        callbackUrl:'/',
-        email,
-        password
-    })
+    try {
+        const res = await signIn('credentials',{
+            redirect:false,
+            callbackUrl:'/',
+            email,
+            password
+        })
+    
+    } catch (error) {
+        return {error:"Invalid username or password"}
 
+    }
+
+    
+  } catch (error) {
+
+    return {error:"Something went wrong"}
+  }
     redirect('/')
 }   

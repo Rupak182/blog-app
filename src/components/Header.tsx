@@ -4,7 +4,6 @@ import Link from "next/link"
 import LoginButtons from "./login-buttons"
 
 import Links from "./Links";
-
 const navLinks = [
     {
         href: "/",
@@ -49,18 +48,7 @@ export default function Header() {
 
             <nav>
                 <ul className="flex gap-x-5 text-[14px] items-center justify-center">
-                    {
-                        // navLinks.map((link) => {
-                        //     return <li key={link.href}>
-                        //         <Link className={` ${
-                        //             pathname=== link.href? "text-zinc-900":"text-zinc-400"
-                        //         }` }  href={link.href}>{link.label}</Link>
-                        //     </li>
-                        // })
-
                         <Links />
-                    }
-
                     <LoginButtons/>
 
                 </ul>

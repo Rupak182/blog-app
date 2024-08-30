@@ -23,14 +23,24 @@ export async function Register(values:z.infer<typeof RegisterSchema>) {
 
     const hashPassword = await bcrypt.hash(password,11);
 
-    const exisingUser =await prisma.user.findUnique({
+    const exisingMail =await prisma.user.findUnique({
         where:{
             email
         }
     })
 
-    if(exisingUser){
+    const exisingUser =await prisma.user.findUnique({
+        where:{
+            name
+        }
+    })
+
+    if(exisingMail){
         return {error:"Email already in use"}
+    }
+
+    if(exisingUser){
+        return {error:"Username taken"}
     }
     
     await prisma.user.create({

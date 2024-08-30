@@ -34,7 +34,7 @@ export default function RegisterForm() {
     }
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3 ">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="username">Username</label>
             <input {...register('name')} className="py-3 px-4  rounded-md" name="name"placeholder="John Doe" />
             {errors.name && (
                 <p className='text-red-500'>{`${errors.name.message}`}</p>

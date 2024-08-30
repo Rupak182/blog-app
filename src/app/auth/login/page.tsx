@@ -3,6 +3,7 @@ import LoginForm from "@/components/login-form"
 import { auth } from "@/auth"
 import { redirect } from "next/navigation";
 import { getSession } from "@/lib/getSession";
+import Link from "next/link";
 
 export default async function Page() {
   // const session = await auth();
@@ -25,6 +26,7 @@ export default async function Page() {
         <h1 className="text-center text-3xl font-bold mb-5 mt-3">LOGIN</h1>
         <div className="form-wrapper w-1/2 p-4 m-auto">
         <LoginForm/>
+        <span className="flex gap-2 mt-2 items-center justify-center"><span>{"Don't have an account?"} </span><Link className="underline" href="/auth/register">Register</Link></span>
         </div>
     </main>
   )

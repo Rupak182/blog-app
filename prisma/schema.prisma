@@ -12,11 +12,16 @@ datasource db {
 
 model User{
   id String @id @default(cuid())
-  name String
+  name String @unique
   email String @unique
   password String
-
+  
+  posts Post[] 
+  comments Comment[]
   // posts Post[]
+
+  @@map("user")
+
 }
 
 
@@ -29,6 +34,9 @@ model Post {
   published Boolean @default(false)
   updatedAt DateTime @updatedAt  @map("updated_at")
   createdAt DateTime @default(now())  @map("created_at")
+  authorId String
+  comments Comment[]
+  author User @relation(fields: [authorId] , references: [id])
 
 
   @@unique([title,body])
@@ -39,5 +47,18 @@ model Post {
 
   // author  User @relation(fields: [authorID] , references: [id])
   // authorID String
+}
+
+
+model Comment{
+    id String @id @default(cuid())
+    commentBody String 
+    createdAt DateTime @default(now())  @map("created_at")
+    userId String
+    commentUser User @relation(fields:[userId],references: [id])
+    postCommented Post @relation(fields:[postId],references: [id] ,onDelete: Cascade)
+    postId String
+    @@map("comment")
+    
 }
 

@@ -20,7 +20,7 @@ export default async function page({params}:paramsType) {
   return (
     <main className="px-7 pt-16 ">
         <Suspense fallback="loading..">
-        <Post slug={params.slug} />
+        <Post slug={params.slug} userId={user.id} />
         </Suspense>
     </main>
   )

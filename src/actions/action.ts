@@ -19,12 +19,13 @@ export async function createPost(formData:FormData) {
         const title =formData.get("title") as string
         const body =formData.get("body") as string
         const slug =(formData.get("title") as string).replace(/\s+/g,"_").toLowerCase();
-    
+        const authorId =formData.get("authorId") as string
         await prisma.post.create({
             data:{
                 title,
                 body,
-                slug
+                slug,
+                authorId
             }
         })
     
@@ -33,6 +34,7 @@ export async function createPost(formData:FormData) {
         console.log(error)
     }
 
+    redirect("/posts")  
 
 }
 
@@ -44,10 +46,10 @@ export async function editPost(formData:FormData)
         const title =formData.get("title") as string
         const body =formData.get("body") as string
         const slug =(formData.get("title") as string).replace(/\s+/g,"_").toLowerCase();
-    
+        const previousSlug = formData.get("slug") as string
     
         await prisma.post.update({
-            where: {slug},
+            where: {slug:previousSlug},
             data:{
                 title,
                 body,
@@ -55,33 +57,66 @@ export async function editPost(formData:FormData)
             }
         })
     
-    
-        revalidatePath("/posts/")
-        redirect("/posts/")  
+        revalidatePath(`/post`)  // update cache
+
+
     } catch (error) {
         console.log(error)
     }
-   
+    redirect("/posts")  
+
 
 }
 
 
 export async function deletePost(slug:string){
     try {
+
+
+
+        
         await prisma.post.delete({where:{
             slug
         }})
     
         revalidatePath("/posts")
-        redirect("/posts")
     
     } catch (error) {
         console.log(error)
     }
-    
+
+
+    redirect("/posts")
+
 
 }
 
 export async function logout() {
     await signOut();
+}
+
+
+export async function createComment(formData:FormData) {
+
+    try {
+        const commentBody =formData.get("commentBody") as string
+        const userId =formData.get("userId") as string
+        const slug =formData.get("slug") as string
+        const postId =formData.get("postId") as string
+
+        await prisma.comment.create({
+            data:{
+               userId,
+               commentBody,
+               postId
+            }
+        })
+    
+        revalidatePath(`/posts/${slug}`)
+    } catch (error) {
+        console.log(error)
+    }
+
+    // redirect("/posts")  
+
 }
