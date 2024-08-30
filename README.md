@@ -36,6 +36,6 @@ Go to the login section from the navbar
 Enter you email and password  and do the login to acceess the contents
 
 
-## FURTHER IMPROVEMENTS NEED TO BE DONE
+## Further improvements needed to be dome
 
 The UI can be further enhanced to give a better look and more responsiveness.
