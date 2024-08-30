@@ -9,7 +9,7 @@ import React from 'react'
 const SubmitBtn =()=>{
   const {pending} = useFormStatus();
   return(
-    <button disabled={pending} type="submit" className={`${pending?"bg-zinc-500" :"bg-blue-500"} text-white p-2 rounded px-7 mt-4 `}>{!pending?"Submit":"Submitting..."}</button>
+    <button disabled={pending} type="submit" className={`${pending?"bg-zinc-500" :"bg-blue-500"} text-white p-2 rounded px-7 mt-4 `}>{!pending?"Add your comment":"Adding..."}</button>
   )
 }
 
