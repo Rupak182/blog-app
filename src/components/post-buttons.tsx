@@ -38,7 +38,7 @@ export default function PostButtons({slug}:{slug:string}) {
         </form>
     </div>
 
-    {state.error ?<p className="text-red-500 w-full text-center mt-4">{state.error}</p>:null}
+    {state.error ?<p className="text-red-500 w-full text-center">{state.error}</p>:null}
 
     </>
 

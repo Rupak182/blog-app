@@ -45,7 +45,7 @@ export default function LoginForm() {
 
     return (
 
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3 ">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3 w-full ">
             <label htmlFor="email">Email</label>
             <input {...register('email')} className="py-3 px-4  rounded-md" type="email" name="email" placeholder="john.doe@example.com" />
             {errors.email && (

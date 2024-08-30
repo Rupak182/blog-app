@@ -2,8 +2,9 @@
 import Image from "next/image"
 import Link from "next/link"
 import LoginButtons from "./login-buttons"
-
 import Links from "./Links";
+import Logo from "./Logo";
+import LinkContainer from "./LinkContainer";
 const navLinks = [
     {
         href: "/",
@@ -20,7 +21,7 @@ const navLinks = [
         label: "Create Post"
     },
 
-  
+
 
 
 ]
@@ -30,32 +31,17 @@ export default function Header() {
 
     // console.log(pathname)
 
-    
+
 
     return (
-        <header className="flex justify-between items-center  py-4 px-7 border-b">
+        <header className="flex justify-between items-center  py-4 px-7 border-b sticky top-0 z-50  bg-white">
+
             <Link href="/">
-            {/* <Image
-                src="https://bytegrad.com/course-assets/youtube/example-logo.png"
-                alt="Logo"
-                className="w-[35px] h-[35px] "
-                width="35"
-                height="35"
-                /> */}
-
                 <span className="text-lg  italic p-4 px-3 rounded-md font-extrabold">BLOGGY</span>
-                </Link>
-
-            <nav>
-                <ul className="flex gap-x-5 text-[14px] items-center justify-center">
-                        <Links />
-                    <LoginButtons/>
-
-                </ul>
-
-                
-
-            </nav>
+            </Link>
+            <LinkContainer>
+                <LoginButtons />
+            </LinkContainer>
         </header>
     )
 }

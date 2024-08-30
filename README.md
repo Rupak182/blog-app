@@ -38,4 +38,7 @@ Enter you email and password  and do the login to acceess the contents
 
 ## Further improvements needed to be done
 
-The UI can be further enhanced to give a better look and more responsiveness.
+The UI can be further enhanced to give a better look .
+
+
+Credits to bytegrad for his tutorial in youtube and of next js and initial design
