@@ -33,7 +33,7 @@ const user = session?.user
 if(!user)
   redirect("/")
 
-console.log(user)
+// console.log(user)
 
 
 // console.log('blogs',searchParams)

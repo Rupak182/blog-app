@@ -2,6 +2,7 @@
 import { signOut } from "@/auth"
 import prisma from "@/lib/db"
 import { getSession } from "@/lib/getSession"
+import { error } from "console"
 import { revalidatePath } from "next/cache"
 import { redirect} from "next/navigation"
 
@@ -12,8 +13,12 @@ import { redirect} from "next/navigation"
 
 // get data using server component and mutating data using server action
 
+type stateType ={
+    error:string 
+}
 
-export async function createPost(formData:FormData) {
+
+export async function createPost(previousState:stateType,formData:FormData) {
 
     try {
         const title =formData.get("title") as string
@@ -30,8 +35,10 @@ export async function createPost(formData:FormData) {
         })
     
         revalidatePath("/posts")
+        // return {error:""};
+
     } catch (error) {
-        console.log(error)
+        return {error:"Error in creating your post"}
     }
 
     redirect("/posts")  
@@ -39,7 +46,7 @@ export async function createPost(formData:FormData) {
 }
 
 
-export async function editPost(formData:FormData)
+export async function editPost(previousState:stateType,formData:FormData)
 {
 
     try {
@@ -61,7 +68,8 @@ export async function editPost(formData:FormData)
 
 
     } catch (error) {
-        console.log(error)
+        return {error:"Error in updating yor post"}
+        
     }
     redirect("/posts")  
 
@@ -82,7 +90,7 @@ export async function deletePost(slug:string){
         revalidatePath("/posts")
     
     } catch (error) {
-        console.log(error)
+        return {error:"Error in updating yor post"}
     }
 
 

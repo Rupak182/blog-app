@@ -9,8 +9,7 @@ import { notFound } from "next/navigation";
 
 import PostButtons from "./post-buttons";
 import { auth } from "@/auth";
-import CommentForm from "./comment-form";
-
+import CommentSection from "./commentSection";
 
 
 
@@ -56,7 +55,7 @@ export default async function Post({ slug ,userId}: { slug: string,userId:string
                 {/* <h1 className="text-5xl font-semibold mb-7 ">{post.title}</h1>
                 <p className="max-w-[700px] mx-auto">{post.body}</p> */}
                 {/* <UpvoteBtn /> */}
-                <CommentForm userId={userId} slug ={slug} postId= {post.id}/>
+                <CommentSection userId={userId} slug ={slug} postId= {post.id}/>
             </main>
 
         </>

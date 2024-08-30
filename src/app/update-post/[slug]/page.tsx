@@ -45,16 +45,16 @@ const slug = params?.slug
     redirect("/")
 
 
-  console.log(author?.id);
-  console.log(user.id)
+  // console.log(author?.id);
+  // console.log(user.id)
 
-  console.log("Hi")
+  // console.log("Hi")
 
 
   
   if(user.id !== author.id)
     {
-      console.log("hello")
+      // console.log("hello")
       redirect("/posts")
     }
   return (

@@ -5,7 +5,6 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useSession } from "next-auth/react"
-import { log } from "console"
 
 const navLinks = [
     {
@@ -28,7 +27,6 @@ const navLinks = [
 export default function Links() {
     const pathname = usePathname();
     const {data :session}= useSession();
-    console.log(session);
     
 
   return (
